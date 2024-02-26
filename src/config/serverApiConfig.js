@@ -1,7 +1,7 @@
 export const API_BASE_URL =
   process.env.NODE_ENV == 'production' || process.env.REACT_APP_DEV_REMOTE == 'remote'
-    ? 'http://localhost:4100/'
-    : 'http://localhost:4100/';
+    ? 'http://65.2.123.154:4100/'
+    : 'http://65.2.123.154:4100/';
 export const DOWNLOAD_BASE_URL =
   process.env.NODE_ENV == 'production' || process.env.REACT_APP_DEV_REMOTE == 'remote'
     ? 'https://calm-ruby-barracuda-sock.cyclic.app/download/'

@@ -1,0 +1,103 @@
+/* Styles for Sidebar */
+.navigation {
+  position: sticky;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #fff;
+  border-right: 1px solid #edf0f5;
+  overflow-y: auto; /* Enable vertical scrolling for the sidebar */
+  overflow-x: hidden;
+   
+
+  &::-webkit-scrollbar{
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track{
+    background-color: #F1EFEF;
+  }
+  &::-webkit-scrollbar-thumb{
+    background-color: rgb(223, 223, 223);
+    border-radius: 6px;
+  }
+
+ 
+
+}
+
+// styles fornavigation link
+.ant-menu > .ant-menu-item:hover,
+.ant-menu > .ant-menu-submenu:hover,
+.ant-menu > .ant-menu-item-active,
+.ant-menu> .ant-menu-submenu-active,
+.ant-menu > .ant-menu-item-open,
+.ant-menu> .ant-menu-submenu-open,
+.ant-menu > .ant-menu-item-selected,
+.ant-menu > .ant-menu-submenu-selected{
+  color: rgb(255, 160, 176) !important;
+  background-color: #fbfcfd !important;
+}
+.ant-menu-submenu-open .ant-menu-submenu-arrow{
+  color: rgb(255, 160, 176) !important; 
+  background-color: #fbfcfd !important;
+
+}
+.ant-menu-submenu-selected .ant-menu-submenu-arrow {
+  color: rgb(255, 160, 176) !important; 
+}
+.ant-menu-submenu-title:hover {
+  .ant-menu-submenu-arrow::before, .ant-menu-submenu-arrow::after {
+      background: rgb(255, 160, 176) !important;
+  }
+  color: rgb(255, 160, 176) !important;
+}
+
+
+
+
+
+/* Styles for Logo */
+.logo {
+  height: 32px;
+  margin: 16px 16px 30px 16px;
+  padding-left: 6px;
+}
+
+/* Styles for Mobile Sidebar */
+.mobile-sidebar-wraper {
+  display: none;
+}
+
+.mobile-sidebar-wraper .ant-drawer-body {
+  padding: 12px 0px !important;
+}
+
+.ant-btn.mobile-sidebar-btn {
+  display: none;
+}
+
+/* Media Query for Mobile View */
+@media only screen and (max-width: 600px) {
+  /* Hide the main sidebar in mobile view */
+  .sidebar-wraper {
+    display: none;
+  }
+
+  /* Expand navigation height to 100% in mobile view */
+  .navigation {
+    height: 100%;
+  }
+
+  /* Show the mobile sidebar button */
+  .ant-btn.mobile-sidebar-btn {
+    display: block;
+    position: absolute;
+    top: 10px;
+  }
+
+  /* Show the mobile sidebar container */
+  .mobile-sidebar-wraper {
+    display: block;
+  }
+}

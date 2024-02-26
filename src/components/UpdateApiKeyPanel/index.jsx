@@ -7,12 +7,13 @@ import Visibility from "../Visibility";
 import Delete from "./DeleteItem";
 import StatusChangeModal from "./UpdatePanel";
 import UpdateKeyModal from "./UpdatePanel";
+import WeatherKey from "./DeleteItem";
 
 
   export default function UpdateApiKeyPanel({config,DataTableDropMenu}) {
     const dispatch = useDispatch();
     const { state } = useErpContext();
-    const { dataTableList,statusModal } = state;
+    const { dataTableList,statusModal,deleteModal } = state;
     useLayoutEffect(() => {
       dispatch(erp.resetState());
     }, []);
@@ -21,6 +22,8 @@ import UpdateKeyModal from "./UpdatePanel";
       <Visibility isVisible={dataTableList.isOpen}>
           <DataTable config={config} DataTableDropMenu={DataTableDropMenu} />
           <UpdateKeyModal  config={config} isVisible={statusModal.isOpen} />
+          <WeatherKey config={config} isVisible={deleteModal.isOpen} />
+
      </Visibility>
       </>
     );

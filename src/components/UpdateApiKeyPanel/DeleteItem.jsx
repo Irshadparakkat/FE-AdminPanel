@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Modal } from 'antd';
+import { Input, Modal } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { erp } from '@/redux/erp/actions';
 import { useErpContext } from '@/context/erp';
 import { selectDeletedItem } from '@/redux/erp/selectors';
 import { valueByString } from '@/utils/helpers';
 
-export default function Delete({ config }) {
+export default function WeatherKey({ config }) {
   let {
     deleteURL,
     entityDisplayLabels,
-    deleteMessage = 'Do you want to delete: ',
-    modalTitle = 'Remove Item',
+    deleteMessage = 'Do you want to Change Weather api key of Open Weather team ',
+    modalTitle = 'change Weather key',
     listURL,
     deleteRequest,
     deletePayment,
@@ -23,6 +23,7 @@ export default function Delete({ config }) {
   const { deleteModal } = state;
   const { modal } = erpContextAction;
   const [displayItem, setDisplayItem] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState('');
 
   useEffect(() => {
     if (isSuccess) {
@@ -35,14 +36,24 @@ export default function Delete({ config }) {
     }
   }, [isSuccess, current]);
 
-  const handleOk = async () => {  
-      await dispatch(erp.delete({ deleteURL, jsonData: { ...current, ...deleteRequest } }));
-    await modal.close();
+  const handleOk = async () => { 
+    if (selectedStatus !='') {
+      await dispatch(erp.delete({ deleteURL:'update_apikey', jsonData: {strWeatherKey:selectedStatus,_id: current._id, ...deleteRequest } })).then(() => {
+        setSelectedStatus('')
+        modal.close();
+        dispatch(erp.list({ listURL }));
+    })
   };
+}
 
   const handleCancel = () => {
     if (!isLoading) modal.close();
   };
+
+
+  const handleInputChange = (e) => {
+    setSelectedStatus(e.target.value);
+};
 
   return (
     <Modal
@@ -56,8 +67,15 @@ export default function Delete({ config }) {
     >
       <p>
         {deleteMessage}
-        {displayItem}
       </p>
+
+      <Input
+                type="text"
+                value={selectedStatus}
+                onChange={handleInputChange}
+                placeholder="Enter new Weather key"
+                style={{ width: '100%', marginTop: '16px' }}
+            />
     </Modal>
   );
 }

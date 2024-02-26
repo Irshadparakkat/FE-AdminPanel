@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Modal, Select } from 'antd';
+import { Input, Modal, Select } from 'antd';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { erp } from '@/redux/erp/actions';
@@ -13,11 +13,9 @@ export default function UpdateKeyModal({ config }) {
     let {
         deleteURL,
         entityDisplayLabels,
-        Message = 'Do you Want to Change Status of ',
-        modalTitle = 'Change Status',
+        Message = 'Do you Want to Change Bot key ',
+        modalTitle = 'Change Bot Key',
         listURL,
-        updatURL,
-        deleteRequest
     } = config;
     const dispatch = useDispatch();
     const { current, isLoading, isSuccess } = useSelector(selectDeletedItem);
@@ -29,7 +27,6 @@ export default function UpdateKeyModal({ config }) {
 
     useEffect(() => {
         if (isSuccess) {
-            statusModals.close();
             dispatch(erp.list({ listURL }));
         }
         if (current) {
@@ -41,47 +38,52 @@ export default function UpdateKeyModal({ config }) {
 
 
     const handleOk = () => {
-        if (selectedStatus) {
+        if (selectedStatus !='') {
             statusModals.close();
             dispatch(
                 erp.create({
-                    createURL: updatURL,
+                    createURL: `update_apikey`,
                     jsonData: {
                         _id: current._id,
-                        strStatus: selectedStatus,
+                        strBotKey: selectedStatus,
                     },
                 })
-            );
+            ).then(() => {
+                setSelectedStatus('')
+                statusModals.close();
+                dispatch(erp.list({ listURL }));
+            })
         }
     };
     const handleCancel = () => {
         if (!isLoading) statusModals.close();
     };
-    const handleStatusChange = (value) => {
-        setSelectedStatus(value);
+   
+    const handleInputChange = (e) => {
+        setSelectedStatus(e.target.value);
     };
 
     return (
         <Modal
             okButtonProps={{ className: 'primaryBtn' }}
             title={modalTitle}
-            visible={statusModals.isOpen}
+            visible={statusModal.isOpen}
             onOk={handleOk}
             onCancel={handleCancel}
             confirmLoading={isLoading}
         >
             <p>
-                {`${Message} ${current?.strName}`}
-                {displayItem}
+                {`${Message}`}
+             
             </p>
-            <Select
+            <Input
+                type="text"
+                value={selectedStatus}
+                onChange={handleInputChange}
+                placeholder="Enter new Bot key"
                 style={{ width: '100%', marginTop: '16px' }}
-                placeholder="Select Status"
-                onChange={handleStatusChange}
-            >
-                <Option value="Active">Cancelled</Option>
-                <Option value="Blocked">Completed</Option>
-            </Select>
+            />
+            
         </Modal>
     );
 }

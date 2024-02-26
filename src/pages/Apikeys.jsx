@@ -34,7 +34,6 @@ export default function ApiKeysEntry() {
     DATATABLE_TITLE,
     dataTableColumns,
     searchConfig,
-    deleteMessage: 'Do you want to Delete the User ',
     entityDisplayLabels,
     createURL: '',
     listURL: 'get_apikeys',

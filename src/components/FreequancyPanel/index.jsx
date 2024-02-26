@@ -19,7 +19,6 @@ import ChangeFrequancyModal from "./FreequancyChange";
       <Visibility isVisible={dataTableList.isOpen}>
           <DataTable config={config} DataTableDropMenu={DataTableDropMenu} />
           <ChangeFrequancyModal  config={config} isVisible={statusModal.isOpen} />
-
      </Visibility>
       </>
     );

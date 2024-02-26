@@ -13,8 +13,8 @@ export default function ChangeFrequancyModal({ config }) {
     let {
         deleteURL,
         entityDisplayLabels,
-        Message = 'Do you Want to Change Status of ',
-        modalTitle = 'Change Status',
+        Message = 'Do you Want to Change Weather sending Frequacy ',
+        modalTitle = 'Change Fequancy',
         listURL,
         deleteRequest
     } = config;
@@ -73,8 +73,7 @@ export default function ChangeFrequancyModal({ config }) {
             confirmLoading={isLoading}
         >
             <p>
-                {`${Message} ${current?.strName}`}
-                {displayItem}
+                {`${Message} `}
             </p>
             <Select
                 style={{ width: '100%', marginTop: '16px' }}

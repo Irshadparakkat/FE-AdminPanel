@@ -34,7 +34,6 @@ export default function Frequancy() {
     dataTableColumns,
     searchConfig,
     deleteMessage: ' ',
-    modalTitle: 'Delete User ',
     entityDisplayLabels,
     createURL: '',
     listURL: 'get_freequancy',

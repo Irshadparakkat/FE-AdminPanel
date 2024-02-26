@@ -1,11 +1,7 @@
 import { Menu } from 'antd';
 
 import {
-  EyeOutlined,
-  EditOutlined,
   DeleteOutlined,
-  FilePdfOutlined,
-  CreditCardOutlined,
   ControlOutlined,
 } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,13 +9,7 @@ import { erp } from '@/redux/erp/actions';
 import { selectListItems, selectItemById } from '@/redux/erp/selectors';
 import { useErpContext } from '@/context/erp';
 
-import { DOWNLOAD_BASE_URL } from '@/config/serverApiConfig';
 import uniqueId from '@/utils/uinqueId';
-
-import {
-  S3_BASE_URL
-} from '@/config/serverApiConfig';
-import { EmailOutlined } from '@material-ui/icons';
 
 
 export default function DataTableDropMenu({ row, entity }) {

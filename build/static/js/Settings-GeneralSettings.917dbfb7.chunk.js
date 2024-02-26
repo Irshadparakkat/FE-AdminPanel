@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkerp_crm=self.webpackChunkerp_crm||[]).push([[911],{8008:function(e,r,n){n.r(r),n.d(r,{default:function(){return u}});var t=n(184);function u(){return(0,t.jsx)("p",{children:"General Settings here"})}}}]);
+//# sourceMappingURL=Settings-GeneralSettings.917dbfb7.chunk.js.map

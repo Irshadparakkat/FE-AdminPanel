@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkerp_crm=self.webpackChunkerp_crm||[]).push([[539],{8126:function(e,n,r){r.r(n),r.d(n,{default:function(){return t}});var c=r(184);function t(){return(0,c.jsx)("p",{children:"Invoice Settings here"})}}}]);
+//# sourceMappingURL=Settings-InvoiceSettings.c4e260ee.chunk.js.map

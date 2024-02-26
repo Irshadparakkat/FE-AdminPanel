@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkerp_crm=self.webpackChunkerp_crm||[]).push([[58],{9438:function(e,n,r){r.r(n),r.d(n,{default:function(){return u}});var t=r(184);function u(){return(0,t.jsx)("p",{children:"payment Settings here"})}}}]);
+//# sourceMappingURL=Settings-PaymentSettings.e5027680.chunk.js.map

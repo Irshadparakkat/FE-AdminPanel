@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkerp_crm=self.webpackChunkerp_crm||[]).push([[187],{9805:function(e,t,r){r.r(t);var n=r(2791),s=r(188),u=r(7309),c=r(426),i=r(184);t.default=function(){return(0,n.useEffect)((function(){c.Z.replace("/notfound")}),[]),(0,i.jsx)(i.Fragment,{children:(0,i.jsx)(s.ZP,{status:"404",title:"404",subTitle:"Sorry, the page you visited does not exist.",extra:(0,i.jsx)(u.Z,{href:"/",type:"primary",children:"Back Home"})})})}}}]);
+//# sourceMappingURL=NotFound.11fd105a.chunk.js.map
